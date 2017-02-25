@@ -1,3 +1,5 @@
+
+	//object to hold array and the create buttons function.
 var game = {
 
 	stuffLiked: ["Video Games", "Paintball", "Hiking", "Zelda", 
@@ -9,13 +11,14 @@ var game = {
 	makeButtons: function(){
 		for(var i = 0; i < this.stuffLiked.length; i++)
 		{
-			var newDiv = $('<button class="btn btn-default" data-stuffLiked=stuffLiked[i]>');
+			var newDiv = $('<button class="btn btn-default" id="data-stuffLiked">');
 			newDiv.text(this.stuffLiked[i]);
 			$('body').append(newDiv);
 		}
 	}
 
 }
+	
 	//Grab images from Giphy and dsiplay on page
 
 $("button").on("click", function() {
@@ -37,13 +40,14 @@ $("button").on("click", function() {
 
 			var p = $("<p>").text("Rating: " + rating);
 
-			var personImage = $("<img>");
-			personImage.attr("src", results[i].images.fixed_height.url);
+			var sutffImg = $("<img>");
+			sutffImg.attr("src", results[i].images.fixed_height.url);
 
 			gifDiv.prepend(p);
-			gifDiv.prepend(personImage);
+			gifDiv.prepend(sutffImg);
 
 			$("#gifs-appear-here").prepend(gifDiv);
+			$('body').prepend(gifDiv)
 		}
 	});
 });
