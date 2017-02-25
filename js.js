@@ -11,13 +11,15 @@ var game = {
 	makeButtons: function(){
 		for(var i = 0; i < this.stuffLiked.length; i++)
 		{
-			var newDiv = $('<button class="btn btn-default" id="data-stuffLiked">');
+			var newDiv = $('<button class="btn btn-default">');
 			newDiv.text(this.stuffLiked[i]);
+			newDiv.attr("data-stuffLiked", this.stuffLiked[i]);
 			$('body').append(newDiv);
 		}
 	}
 
 }
+game.makeButtons();
 	
 	//Grab images from Giphy and dsiplay on page
 
@@ -89,7 +91,7 @@ $("button").on("click", function() {
       });
 
 
-game.makeButtons();
+
 
 console.log(game.stuffLiked);
 
